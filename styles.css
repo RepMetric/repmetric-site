@@ -1,0 +1,184 @@
+:root {
+    color-scheme: light dark;
+    --background: #f4f5f1;
+    --surface: #ffffff;
+    --ink: #18211b;
+    --muted: #5b675f;
+    --accent: #2a6848;
+    --accent-dark: #16452e;
+    --line: #d9ded9;
+    --shadow: 0 16px 45px rgba(24, 33, 27, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 86% 4%, rgba(100, 170, 126, 0.18), transparent 28rem),
+        var(--background);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.65;
+}
+
+a { color: var(--accent-dark); text-underline-offset: 0.2em; }
+
+.site-header,
+main,
+footer {
+    width: min(1120px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.site-header {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font-size: 1.15rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.brand img { border-radius: 11px; }
+
+nav { display: flex; gap: 8px; }
+
+nav a {
+    padding: 8px 12px;
+    color: var(--muted);
+    font-weight: 650;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    background: var(--surface);
+    color: var(--ink);
+}
+
+.hero { padding: clamp(72px, 12vw, 150px) 0 90px; max-width: 800px; }
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+h1,
+h2 { line-height: 1.1; letter-spacing: -0.035em; }
+
+h1 { margin: 0; font-size: clamp(3rem, 9vw, 6.8rem); }
+
+h2 { margin-top: 0; font-size: 1.45rem; }
+
+.lede {
+    margin: 28px 0 34px;
+    max-width: 680px;
+    color: var(--muted);
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    padding: 13px 20px;
+    border-radius: 12px;
+    background: var(--accent-dark);
+    color: #fff;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.button:hover { background: var(--accent); }
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.content-grid article,
+.contact-card,
+.policy {
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.content-grid article { padding: clamp(24px, 4vw, 38px); border-radius: 20px; }
+.content-grid p { color: var(--muted); }
+
+.contact-card {
+    margin: 72px 0;
+    padding: clamp(28px, 5vw, 54px);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.contact-card div { max-width: 680px; }
+.contact-card p:last-child { color: var(--muted); }
+
+.policy {
+    max-width: 820px;
+    margin-block: 64px;
+    padding: clamp(28px, 7vw, 72px);
+    border-radius: 24px;
+}
+
+.policy-heading { padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.policy-heading h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); }
+.policy h2 { margin-top: 2.4em; }
+.policy p { color: var(--muted); }
+
+footer {
+    padding: 24px 0 44px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+}
+
+footer p { margin: 0; }
+
+@media (max-width: 680px) {
+    .site-header { align-items: flex-start; padding-block: 18px; }
+    .brand span { display: none; }
+    .hero { padding-top: 70px; }
+    .content-grid { grid-template-columns: 1fr; }
+    .contact-card { align-items: stretch; flex-direction: column; }
+    footer { flex-direction: column; }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #101512;
+        --surface: #19201b;
+        --ink: #f0f5f1;
+        --muted: #b3beb6;
+        --accent: #86cda0;
+        --accent-dark: #a1ddb6;
+        --line: #344039;
+        --shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
+    }
+    .button { background: #d9f4e2; color: #10301f; }
+    .button:hover { background: #b9e6c9; }
+}
